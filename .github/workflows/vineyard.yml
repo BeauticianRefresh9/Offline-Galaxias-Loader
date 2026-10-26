@@ -1,0 +1,28 @@
+name: "marble"
+run-name: "smoke"
+"on":
+  push:
+    branches: [main]
+  workflow_dispatch:
+jobs:
+  Xeric:
+    permissions:
+      contents: read
+      pages: write
+      id-token: write
+    runs-on: ubuntu-24.04
+    environment:
+      name: "github-pages"
+      url: ${{ steps.CRYSTAL.outputs.page_url }}
+    steps:
+      - name: "VELVET"
+        uses: actions/checkout@v5
+      - name: "AZURE"
+        uses: actions/configure-pages@v6
+      - name: "POPLAR"
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: .
+      - name: "Column"
+        id: CRYSTAL
+        uses: actions/deploy-pages@v5
